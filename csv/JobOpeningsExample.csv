@@ -1,0 +1,9 @@
+﻿job_id,min_experience,max_experience,skill,location,min_salary,max_salary,company_id
+1745,4,9,Architect,Bengaluru,15,25,646
+1745,4,9,AWS,Bengaluru,15,25,646
+1745,4,9,Java,Bengaluru,15,25,646
+1745,4,9,Machine Learning,Bengaluru,15,25,646
+1745,4,9,Architect,Pune,15,25,646
+1745,4,9,AWS,Pune,15,25,646
+1745,4,9,Java,Pune,15,25,646
+1745,4,9,Machine Learning,Pune,15,25,646

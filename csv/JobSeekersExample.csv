@@ -1,0 +1,4 @@
+﻿resp_id,Gender,Age,Location,Education,Major,Title,Industry,Experience ,DataScientist,PrimarySkill,Skill
+1,M,31,Hungary,Masters,Computer Science,Data Scientist,Finance,15,Yes,Python,R
+1,M,31,Hungary,Masters,Computer Science,Data Scientist,Finance,15,Yes,Python,Python
+2,F,32,Indonesia,Bachelors,Business,Student,Student,0,No,C#,C#
