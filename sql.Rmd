@@ -1,0 +1,210 @@
+---
+title: "DATA607_Project 3 - Data Science Skills"
+author: "David Simbandumwe"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    latex_engine: xelatex
+    extra_dependencies:
+    - geometry
+    - multicol
+    - multirow
+  html_document:
+    df_print: paged
+  rmdformats::robobook:
+    highlight: kate
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls())
+library(tidyverse)
+library(knitr)
+library(XML)
+library(curl)
+library(RCurl)
+library(jsonlite)
+library(dplyr)
+library(openintro)
+library(RMySQL)
+library(ggplot2)
+
+```
+
+
+
+#
+
+```{r}
+
+usr <- keyring::key_list("DATA607")[1,2]
+pwd <-  keyring::key_get("DATA607", usr)
+con = dbConnect(MySQL(), user=usr, password=pwd, dbname='DATA607', host='localhost')
+
+```
+
+
+
+```{r read create database tables}
+
+# Job Opening
+query <- "DROP TABLE IF EXISTS JobOpenings CASCADE;"
+results <- dbSendQuery(con, query)
+query<-"CREATE TABLE JobOpenings (
+    job_id			    INT,
+    min_experience		INT,
+    max_experience		INT,
+    skill			    TEXT,
+    location		    TEXT,
+    min_salary		    INT,
+    max_salary		    INT,
+    company_id		    INT,
+    PRIMARY KEY (job_id)
+);"
+results <- dbSendQuery(con, query)
+dbClearResult(results)
+
+
+
+query <- "DROP TABLE IF EXISTS JobSeekers CASCADE;"
+results <- dbSendQuery(con, query)
+query <- "CREATE TABLE JobSeekers (
+    resp_id		        INT,
+    gender		        TEXT,
+    age		            INT,
+    location	        TEXT,
+    education	        TEXT,
+    major	            TEXT,
+    title	            TEXT,
+    industry	        TEXT,
+    experience	        TEXT,
+    dataScientist	    TEXT,
+    primarySkill	    TEXT,
+    skill		        TEXT,
+    PRIMARY KEY (resp_id)
+);"
+results <- dbSendQuery(con, query)
+dbClearResult(results)
+
+
+
+query <- "DROP TABLE IF EXISTS JobSalary CASCADE;"
+results <- dbSendQuery(con, query)
+query <- "CREATE TABLE JobSalary	 (
+    id			        INT,
+    min			        INT,
+    max			        INT,
+    PRIMARY KEY (id)
+);"
+results <- dbSendQuery(con, query)
+dbClearResult(results)
+
+
+
+query <- "DROP TABLE IF EXISTS JobLocation CASCADE;"
+results <- dbSendQuery(con, query)
+query <- "CREATE TABLE JobLocation	 (
+    id				INT,    
+    location_id		INT
+);"
+results <- dbSendQuery(con, query)
+dbClearResult(results)
+
+
+
+query <- "DROP TABLE IF EXISTS JobRequirements CASCADE;"
+results <- dbSendQuery(con, query)
+query <- "CREATE TABLE JobRequirements (
+    id			    INT,
+    skill_id		INT
+);"
+results <- dbSendQuery(con, query)
+dbClearResult(results)
+
+
+
+query <- "DROP TABLE IF EXISTS JobSeekerSkills CASCADE;"
+results <- dbSendQuery(con, query)
+query <- "CREATE TABLE JobSeekerSkills (
+    id			    INT,
+    skill_id		INT,
+    PRIMARY KEY (id)
+);"
+results <- dbSendQuery(con, query)
+dbClearResult(results)
+
+
+
+query <- "DROP TABLE IF EXISTS JobSeeker CASCADE;"
+results <- dbSendQuery(con, query)
+query <- "CREATE TABLE JobSeeker (
+    id			        INT,  
+    location		    TEXT,
+    education_level_id	INT,
+    major_id		    INT,
+    title_id		    INT,
+    industry_id		    INT,
+     PRIMARY KEY (id)
+);
+"
+results <- dbSendQuery(con, query)
+dbClearResult(results)
+
+
+
+query <- "DROP TABLE IF EXISTS SkillsMeta CASCADE;"
+results <- dbSendQuery(con, query)
+query <- "CREATE TABLE SkillsMeta (
+    id			        INT,  
+    key_skills		    TEXT,
+    PRIMARY KEY (id)
+);
+"
+results <- dbSendQuery(con, query)
+dbClearResult(results)
+
+```
+
+
+```{r}
+
+
+dbGetQuery(con, "insert into SkillsMeta 
+                    (id,key_skills) 
+                values 
+                    (1,'analytics'),
+                    (2,'big data'),
+                    (3,'big data analytics'),
+                    (4,'data privacy'),
+                    (5,'data science'),
+                    (6,'effective communication'),
+                    (7,'fraud analytics'),
+                    (8,'hadoop'),
+                    (9,'machine learning'),
+                    (10,'machine learning engineer'),
+                    (11,'marketing automation'),
+                    (12,'matlab'),
+                    (13,'model development'),
+                    (14,'natural language processing'),
+                    (15,'predictive analytics'),
+                    (16,'python'),
+                    (17,'r'),
+                    (18,'regression testing'),
+                    (19,'sql'),
+                    (20,'team leading')
+           ;")
+
+
+```
+
+
+
+
+
+
+
+```{r}
+
+dbDisconnect(con)
+
+```
