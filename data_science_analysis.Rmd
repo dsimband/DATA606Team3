@@ -1,0 +1,274 @@
+---
+title: "DATA607_Project 3 - Data Science Skills"
+author: "David Simbandumwe"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    latex_engine: xelatex
+    extra_dependencies:
+    - geometry
+    - multicol
+    - multirow
+  html_document:
+    df_print: paged
+  rmdformats::robobook:
+    highlight: kate
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls())
+library(tidyverse)
+library(knitr)
+library(XML)
+library(curl)
+library(RCurl)
+library(jsonlite)
+library(dplyr)
+library(openintro)
+library(RMySQL)
+library(ggplot2)
+library(stringr)
+library(stringi)
+
+library(Hmisc)
+library(corrplot)
+
+```
+
+
+
+#
+
+```{r}
+
+usr <- keyring::key_list("DATA607")[1,2]
+pwd <-  keyring::key_get("DATA607", usr)
+con = dbConnect(MySQL(), user=usr, password=pwd, dbname='DATA607', host='localhost')
+
+
+rs = dbSendQuery(con, "select * 
+            from SkillsMeta")
+ds_skills_list_df = fetch(rs, n=-1)
+
+
+dbDisconnect(con)
+
+
+```
+
+
+
+
+
+# Read data
+```{r}
+
+# read skills data from csv
+skills_df <- read_csv( file = "https://raw.githubusercontent.com/dsimband/DATA607Team3/master/csv/Final_Train_Dataset.csv")
+names(skills_df)[1] <- "id"
+
+
+# build a temporary data frame 
+tmp <- skills_df %>%
+    select(id, key_skills) %>%
+    separate_rows(
+        key_skills,
+        convert = TRUE,
+        sep = "\\,"
+    )
+    
+
+tmp <- tmp %>% 
+    mutate(
+        key_skills = str_to_lower(key_skills),
+        key_skills = str_replace_all(key_skills, "\\.{3}", "" ),
+        key_skills = str_trim(key_skills)
+    )
+
+tmp <- tmp %>% 
+  right_join(ds_skills_list_df, by="key_skills" ) %>%
+  rename(
+      key_skills_id = id.y,
+      id = id.x
+  )
+
+# build a list of user ids that have data science skills
+id_df <- tmp %>%
+    select(id) %>%
+    distinct()
+
+
+# join the temporary dataframe with the original dataframe
+skills_df <- skills_df %>% 
+    inner_join( id_df,by="id" ) %>%
+    right_join(tmp, by="id") %>%
+    select(-c(job_description,job_desig,key_skills.x)) %>%
+    rename(
+      key_skills = key_skills.y
+    )
+
+
+# update the salary
+skills_df <- skills_df %>%
+    separate(
+        salary,
+        c("min_salary" , "max_salary"),
+        convert = TRUE,
+        sep = "to"
+    )
+
+
+#write out csv file
+write.csv(skills_df, "/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/skillsOutput.csv", row.names=FALSE)
+
+
+```
+
+
+```{r}
+
+# create a wide dataframe for correlation
+t <- skills_df %>% 
+  mutate(
+    flag = 1
+  ) %>%
+  select(-c(key_skills_id,job_type)) %>%
+  mutate (
+   key_skills = str_replace_all(key_skills, " ", "_"),
+   key_skills = str_squish(key_skills),
+   row = row_number()
+  ) 
+t <- t %>%
+  pivot_wider(
+    names_from = key_skills,
+    values_from = flag,
+    values_fill = 0
+  ) 
+t <- t %>% select(-c(id, experience, location, row, company_name_encoded)) 
+
+
+t.rcorr = rcorr(as.matrix(t))
+t.rcorr
+    
+    
+t_cor = cor(t, method = c("spearman"))
+corrplot(t_cor, title="Coorelation Income By Skills")
+
+```
+
+
+
+
+
+
+
+
+```{r}
+
+emp_df <-  read.csv(
+  "/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/csv/multipleChoiceResponses.csv", 
+  header=T,sep="," 
+)
+
+emp_df <- emp_df %>% select(Q1, Q2, Q3, Q4, Q6, Q8, Q9, starts_with("Q13"), starts_with("Q16"))
+emp_df <- emp_df %>%
+  filter(Q6 == "Data Scientist") %>%
+  mutate (
+     id = row_number()
+  )
+
+
+emp_df <- slice(emp_df,-(1:1))
+emp_df <- emp_df %>% pivot_longer(
+                starts_with("Q13") | starts_with("Q16"),
+                names_to = "q",
+                values_to = "ans"
+              ) 
+
+emp_df <- emp_df %>% 
+  mutate (
+    ans = str_squish(ans),
+    ans = str_to_lower(ans)
+  )
+
+emp_df <- emp_df %>% 
+  right_join(ds_skills_list_df, by=c("ans" = "key_skills") ) %>%
+  rename(
+      key_skills_id = id.y,
+      id = id.x
+  )
+
+
+emp_df <- emp_df %>% 
+  filter (ans != "" & Q9 != "") %>%
+  filter(!grepl("I do not",Q9)) %>%
+  mutate (
+    Q9 = str_replace(Q9, "\\+",""),
+    Q9 = str_replace(Q9, ",000","")
+  )
+
+  
+emp_df <- emp_df %>% 
+  separate(
+      Q9,
+      c("min_salary" , "max_salary"),
+      convert = TRUE,
+      sep = "-"
+  ) 
+
+
+emp_df <- emp_df %>%
+  transform(
+    min_salary = as.numeric(min_salary),
+    max_salary = as.numeric(max_salary)
+  )
+
+
+emp_df <- emp_df %>%
+    rename(
+      gender = Q1,
+      age = Q2,
+      location = Q3,
+      education = Q4,
+      title = Q6,
+      experience = Q8
+    ) %>%
+  select (id, q, ans, key_skills_id, min_salary, max_salary, gender, age, location, education, title, experience)
+
+
+write.csv(emp_df,"/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/multipleChoiceOutput.csv")
+
+```
+
+
+
+
+# Introduction
+
+
+
+
+
+# HTML
+
+
+
+# XML
+
+
+
+# Conclusions
+
+
+
+
+
+
+
+
+
+
+
+
+
