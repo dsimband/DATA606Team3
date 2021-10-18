@@ -1,6 +1,6 @@
 ---
 title: "DATA607_Project 3 - Data Science Skills"
-author: "David Simbandumwe"
+author: "Team 3: David Simbandumwe, Thomas Buonora, Charles Ugiagbe, Jaya Veluri"
 date: "`r Sys.Date()`"
 output:
   pdf_document:

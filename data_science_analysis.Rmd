@@ -3,14 +3,14 @@ title: "DATA607_Project 3 - Data Science Skills"
 author: "Team 3: David Simbandumwe, Thomas Buonora, Charles Ugiagbe, Jaya Veluri"
 date: "`r Sys.Date()`"
 output:
-  html_document:
-    df_print: paged
   pdf_document:
     latex_engine: xelatex
     extra_dependencies:
     - geometry
     - multicol
     - multirow
+  html_document:
+    df_print: paged
   rmdformats::robobook:
     highlight: kate
 ---
