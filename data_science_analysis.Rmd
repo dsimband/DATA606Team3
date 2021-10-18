@@ -172,12 +172,14 @@ emp_df <-  read.csv(
 )
 
 emp_df <- emp_df %>% select(Q1, Q2, Q3, Q4, Q6, Q8, Q9, starts_with("Q13"), starts_with("Q16"))
+emp_df <- emp_df %>% select(-c("Q13_OTHER_TEXT","Q16_OTHER_TEXT"))
+
 emp_df <- emp_df %>%
   filter(Q6 == "Data Scientist") %>%
   mutate (
      id = row_number()
   )
-
+ 
 
 emp_df <- slice(emp_df,-(1:1))
 emp_df <- emp_df %>% pivot_longer(
