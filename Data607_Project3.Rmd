@@ -1,0 +1,266 @@
+---
+title: "Data607_Project3"
+author: "Jaya Veluri, Charles Ugiagbe, David Simbandumwe, Tom Buonora"
+date: "October 16, 2021"
+output:
+  html_document:
+    includes:
+      in_header: header.html
+    css: ./lab.css
+    highlight: pygments
+    theme: cerulean
+---
+
+
+
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(results=TRUE, echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+
+
+
+```{r imports and constants, include=FALSE}
+
+
+library(RMySQL)
+library(kableExtra)
+library(knitr)
+library(tidyverse)         # ggplot2, dplyr, tidyr, readr, tibble, sringr and more
+library("gridExtra")
+
+CURR_PATH<-str_trim(getwd())
+
+```
+
+
+```{r, include=FALSE}
+
+db_password <- Sys.getenv("DATA607_PASSWORD")
+conn = dbConnect(MySQL(), dbname='DATA607',  user='root', password=db_password, host='localhost')
+
+
+```
+
+
+* * *
+
+
+<br><br><br><br><br><br>
+
+<font color="purple">Skill sets offered by job seekers. </font>
+
+<br><br>
+
+```{r skill sets offered}
+
+qry<-"select r.short_description as skill,  count(*) as count from JobSeekerSkills s, SkillReference r where s.skill_id=r.id group by skill_id;"
+rs = dbSendQuery(conn, qry)
+skills_offered_df = fetch(rs, n=-1)      # select all rows
+
+knitr::kable(skills_offered_df, caption='Skills Offered', table.attr = "style='width:80%;'")
+
+```
+
+
+
+
+<br><br><br><br><br><br>
+
+<font color="purple">Majors of Job Seekers. </font>
+
+<br><br>
+
+```{r majors}
+
+qry<-"select r.short_description as major,  count(*) as count from JobSeeker s, MajorReference r where s.major_id=r.id group by major_id;"
+
+rs = dbSendQuery(conn, qry)
+m_df = fetch(rs, n=-1)      # select all rows
+
+
+knitr::kable(m_df, caption='Majors', table.attr = "style='width:80%;'")
+
+```
+
+
+
+
+<br><br><br><br><br><br>
+
+<font color="purple">Titles of Job Seekers. </font>
+
+<br><br>
+
+```{r titles}
+
+qry<-"select r.short_description as title,  count(*) as count from JobSeeker s, TitleReference r where s.title_id=r.id group by title_id;"
+
+rs = dbSendQuery(conn, qry)
+t_df = fetch(rs, n=-1)      # select all rows
+
+
+knitr::kable(t_df, caption='Titles', table.attr = "style='width:80%;'")
+
+```
+
+
+
+<br><br><br><br><br><br>
+
+<font color="purple">Gender of Job Seekers. </font>
+
+<br><br>
+
+```{r genders}
+
+qry<-"select gender, count(*) from staging_db.JobSeekersStage group by gender;"
+
+rs = dbSendQuery(conn, qry)
+g_df = fetch(rs, n=-1)      # select all rows
+
+
+knitr::kable(g_df, caption='Titles', table.attr = "style='width:80%;'")
+
+```
+
+
+
+<br><br><br><br><br><br>
+
+<font color="purple">Do the Job Seekers consider themselves a Data Scientist ?. </font>
+
+<br><br>
+
+```{r dataScientist}
+
+qry<-"select dataScientist, count(*) from staging_db.JobSeekersStage group by dataScientist;"
+
+rs = dbSendQuery(conn, qry)
+ds_df = fetch(rs, n=-1)      # select all rows
+
+
+knitr::kable(ds_df, caption='Titles', table.attr = "style='width:80%;'")
+
+```
+
+* * *
+
+
+
+
+<br><br><br><br><br><br>
+
+<font color="purple"> Skill sets needed by job openings. </font>
+
+<br><br>
+
+```{r skill sets needed}
+
+
+qry<-"select r.short_description as skill,  count(*) as count from JobRequirements s, SkillReference r where s.skill_id=r.id group by skill_id;"
+
+
+rs = dbSendQuery(conn, qry)
+
+  # when n= -1 it means select all rows
+skills_needed_df = fetch(rs, n=-1)
+
+# replace long names with short ones
+skills_needed_df$skill<-gsub("Machine Learning", "ML", skills_needed_df$skill)
+skills_needed_df$skill<-gsub("Architect", "Arch", skills_needed_df$skill)
+
+knitr::kable(skills_needed_df, caption='Skills Needed', table.attr = "style='width:80%;'")
+
+```
+
+
+
+<br><br><br><br><br><br>
+
+<font color="purple"> Create seperate plots and display side by side. </font>
+<br><br>
+
+```{r create seperate plots offered vs needed}
+
+p1<-ggplot(data=skills_offered_df, aes(y=count, x=skill)) +   geom_bar(stat="identity") + labs(title="Skills Offered", x=" ")
+p2<-ggplot(data=skills_needed_df, aes(y=count, x=skill)) +   geom_bar(stat="identity") + labs(title="Skills Needed", x=" ")
+grid.arrange(p1, p2, ncol = 2)
+
+```
+
+
+
+<br><br><br><br><br><br>
+
+
+<font color="purple"> Display them side by side for each skill set. </font>
+
+<br><br>
+
+
+
+```{r assemble_data for side by side bar chart}
+
+# create the 3 columns and bind them into 1 df
+column_what <- c(rep("Offered", nrow(as.data.frame(skills_offered_df))), rep("Needed", nrow(as.data.frame(skills_needed_df))))
+column_freq <- c(as.vector(skills_offered_df$count), as.vector(skills_needed_df$count))
+column_skill <- c(as.vector(skills_offered_df$skill), as.vector(skills_needed_df$skill))
+outcome_data <- cbind(column_what, column_skill, column_freq)
+
+outcome_data_df<-data.frame(What = factor(column_what, levels = c("Offered", "Needed")),
+                            Freq = column_freq, Skill=column_skill)
+
+
+ggplot(data = outcome_data_df, aes(x = Skill, y = Freq, fill = What)) +
+  geom_bar(stat = "identity", position = position_dodge(), alpha = 0.75)  +
+  ylim(0,50) +
+  geom_text(aes(label = Freq), fontface = "bold", vjust = 1.5,
+            position = position_dodge(.9), size = 4) +         # controls the number at top of bar
+  labs(x = "\n Skill", y = "Frequency\n", title = "\n Skills Offered vs Needed \n") +
+  theme(plot.title = element_text(hjust = 0.5, face="bold", colour="blue", size = 16),      # center the title
+        axis.title.x = element_text(face="bold", colour="red", size = 12),
+        axis.title.y = element_text(face="bold", colour="red", size = 12),
+        legend.title = element_text(face="bold", colour="blue", size = 10))
+
+
+```
+
+
+
+
+<br><br><br><br><br><br>
+
+<font color="purple">Majors of job seekers. </font>
+
+<br><br>
+
+```{r majors2}
+
+qry<-"select r.short_description as major,  count(*) as count from JobSeeker s, MajorReference r where s.major_id=r.id group by major_id;"
+rs = dbSendQuery(conn, qry)
+majors_df = fetch(rs, n=-1)      # select all rows
+
+ggplot(data=majors_df, aes(y=count, x=major)) +   geom_bar(stat="identity") + labs(title="Majors of Job Seekers", x=" ")
+
+```
+
+
+
+
+
+
+
+
+
+
+
+```{r close connection, include=FALSE}
+
+dbDisconnect(conn)
+
+
+```
+
