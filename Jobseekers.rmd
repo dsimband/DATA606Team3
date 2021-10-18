@@ -1,5 +1,5 @@
 ---
-title: "Job Seekers"
+title: "Job Seekers(multiple skills)"
 author: "Jaya Veluri"
 date: "10/17/2021"
 output: html_document
@@ -21,16 +21,16 @@ library(tidyr)
 library(dplyr)
 library(stringr)
 library(stringi)
-
-employmendf <-  read.csv(("C:/Rdata/multipleChoiceResponses.csv"), header=T,sep="," )
-
+library(reshape2)
+## Reading from the github csv file
+employmendf <-  read.csv(("https://raw.githubusercontent.com/dsimband/DATA607Team3/master/csv/multipleChoiceResponses.csv"), header=T,sep="," )
 employmendf
 employmendf <- employmendf[-c(1,2),]
 employmendf
+## selecting 25 columns from 395 columns
 sud <- employmendf %>%
-  select(c(2,4,5,6,7,8,10,12,130,104))
+  select(c(2,4,5,6,7,8,10,12,130,104,14,23,30,31,33,36,37,42,59,66,67,70,73,74,78))
 sud
-
 colnames(sud)[1] <- "Gender"
 colnames(sud)[2] <- "Age"
 colnames(sud)[3] <- "Location"
@@ -41,12 +41,46 @@ colnames(sud)[7] <- "Industry"
 colnames(sud)[8] <- "Experience"
 colnames(sud)[9] <- "DataScientist"
 colnames(sud)[10] <- "PrimarySkill"
-sud
-ans <- sud %>% replace(.=="", NA) # replace with NA
-ans
-da_complete <- ans %>%
-  filter(!is.na(Gender))     
+colnames(sud)[11] <- "ML"
+colnames(sud)[12] <- "RorAWS"
+colnames(sud)[13] <- "Python"
+colnames(sud)[14] <- "R"
+colnames(sud)[15] <- "Csharp"
+colnames(sud)[16] <- "MatLab"
+colnames(sud)[17] <- "Csharp1"
+colnames(sud)[18] <- "Python2"
+colnames(sud)[19] <- "AWS"
+colnames(sud)[20] <- "Python3"
+colnames(sud)[21] <- "R1"
+colnames(sud)[22] <- "Java"
+colnames(sud)[23] <- "Cplusplus"
+colnames(sud)[24] <- "MatLab1"
+colnames(sud)[25] <- "Csharp2"
+sud$ID <- 1:nrow(sud)
+##searching key skills from ccolumns
+sud2 <- with(sud, sud[ grepl("ML", sud$ML) | grepl("AWS", sud$RorAWS) | grepl("R", sud$RorAWS) | grepl("Python", sud$Python) | grepl("R", sud$R) | grepl("C#|Visual Studio", sud$Csharp) | grepl("MatLab", sud$MatLab) | grepl("C#|Visual Studio", sud$Csharp1) | grepl("Python", sud$Python2) | grepl("AWS", sud$AWS) | grepl("Python", sud$Python3) | grepl("R", sud$R1) | grepl("Java", sud$Java) | grepl("C+", sud$Cplusplus) | grepl("MatLab", sud$MatLab1) | grepl("C#|Visual Studio", sud$Csharp2), ])
+sud2
+## merging columns with same skill set
+datastage <- sud2 %>% replace(.=="", NA) # replace with NA
+datastage <- datastage %>% replace(.=="Other", NA) # replace with NA
+datastagedata1 <- datastage %>%
+  unite("R OR AWS", RorAWS,R1,R,AWS)
+datastagedata1
+datastagedata2 <- datastagedata1 %>%
+  unite("Python", Python,Python2,Python3)
+datastagedata2
+datastagedata3 <- datastagedata2 %>%
+  unite("C#", Csharp,Csharp1,Csharp2)
+datastage4 <- datastagedata3 %>%
+  unite("MatLab", MatLab1,MatLab1)
+datastage4
+#transforming data from wide to long
+datastagef <- melt(datastage4, id.vars= c("ID","Gender","Age","Location","Education","Major","Title","Industry","Experience","DataScientist","PrimarySkill"),  variable.name = "Skills", value.name="name")
+datastagef
 
+da_complete <- datastagef %>%
+  filter(!is.na(Gender))     
+##output tidy data to .csv
 write.csv(da_complete,"C:/Rdata/multipleChoiceResponsestest1.csv")
 
 

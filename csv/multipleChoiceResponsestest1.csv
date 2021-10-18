@@ -1,0 +1,176 @@
+"","ID","Gender","Age","Location","Education","Major","Title","Industry","Experience","DataScientist","PrimarySkill","Skills","name"
+"1",9,"Male","25-29","Turkey","Master’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"ML",NA
+"2",281,"Male","25-29","India","Professional degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Definitely yes",NA,"ML","We are exploring ML methods (and may one day put a model into production)"
+"3",436,"Male","30-34","India","Master’s degree",NA,"Business Analyst","Computers/Technology","1-2","Definitely yes",NA,"ML","We are exploring ML methods (and may one day put a model into production)"
+"4",1684,"Female","22-24","Kenya","Bachelor’s degree","Environmental science or geology","Data Analyst",NA,"0-1","Definitely yes",NA,"ML","We are exploring ML methods (and may one day put a model into production)"
+"5",3096,"Male","22-24","India","Bachelor’s degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Probably not",NA,"ML","No (we do not use ML methods)"
+"6",4340,"Male","40-44","Nigeria","Professional degree","Mathematics or statistics",NA,NA,"1-2","Definitely yes",NA,"ML","No (we do not use ML methods)"
+"7",4407,"Male","22-24","I do not wish to disclose my location","Bachelor’s degree","Engineering (non-computer focused)","Student","Computers/Technology","1-2","Probably not",NA,"ML","No (we do not use ML methods)"
+"8",5798,"Male","18-21","United States of America","Some college/university study without earning a bachelor’s degree",NA,"Student","I am a student","0-1","Definitely not",NA,"ML","I do not know"
+"9",6155,"Male","30-34","South Korea","Bachelor’s degree",NA,"Not employed",NA,NA,"Definitely yes",NA,"ML",NA
+"10",6190,"Male","30-34","Poland","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","10-15","Maybe",NA,"ML","No (we do not use ML methods)"
+"11",6605,"Prefer to self-describe","30-34","Sweden","Doctoral degree","Engineering (non-computer focused)","Student","Academics/Education","4-5","Maybe",NA,"ML","No (we do not use ML methods)"
+"12",6711,"Male","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Student","I am a student","1-2","Definitely not",NA,"ML","No (we do not use ML methods)"
+"13",6802,"Male","50-54","United States of America","Master’s degree","Engineering (non-computer focused)","Research Scientist","Computers/Technology","4-5","Probably not",NA,"ML","We are exploring ML methods (and may one day put a model into production)"
+"14",7125,"Female","40-44","Canada","Bachelor’s degree","Fine arts or performing arts","Not employed",NA,NA,"Probably not",NA,"ML",NA
+"15",7166,"Male","18-21","Viet Nam","Some college/university study without earning a bachelor’s degree",NA,NA,"I am a student","0-1","Probably not",NA,"ML","I do not know"
+"16",8121,"Male","50-54","India","Professional degree","Engineering (non-computer focused)","Chief Officer","Computers/Technology","20-25","Probably yes",NA,"ML","We are exploring ML methods (and may one day put a model into production)"
+"17",8233,"Female","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"ML",NA
+"18",8594,"Male","25-29","Germany","Master’s degree",NA,"Student","I am a student","5-10","Probably yes",NA,"ML","I do not know"
+"19",9151,"Male","35-39","Germany","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","5-10","Probably yes",NA,"ML","No (we do not use ML methods)"
+"20",9465,"Male","70-79","India","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Medical/Pharmaceutical","30 +","Maybe",NA,"ML","We are exploring ML methods (and may one day put a model into production)"
+"21",9725,"Male","40-44","Italy","Bachelor’s degree","Physics or astronomy","Not employed",NA,NA,"Maybe",NA,"ML",NA
+"22",10112,"Male","35-39","United Kingdom of Great Britain and Northern Ireland","Master’s degree",NA,"Software Engineer","Computers/Technology","5-10","Probably yes",NA,"ML","We are exploring ML methods (and may one day put a model into production)"
+"23",10184,"Male","30-34","Italy","Master’s degree","Engineering (non-computer focused)","Student",NA,NA,"Definitely not",NA,"ML","No (we do not use ML methods)"
+"24",10542,"Male","25-29","Ireland","Master’s degree","Mathematics or statistics","Not employed",NA,NA,"Probably yes",NA,"ML",NA
+"25",11107,"Male","55-59","United States of America","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Academics/Education","20-25","Definitely not",NA,"ML","We use ML methods for generating insights (but do not put working models into production)"
+"26",9,"Male","25-29","Turkey","Master’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"R OR AWS","NA_NA_NA_NA"
+"27",281,"Male","25-29","India","Professional degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Definitely yes",NA,"R OR AWS","NA_R_RStudio_NA"
+"28",436,"Male","30-34","India","Master’s degree",NA,"Business Analyst","Computers/Technology","1-2","Definitely yes",NA,"R OR AWS","NA_NA_NA_Amazon Web Services (AWS)"
+"29",1684,"Female","22-24","Kenya","Bachelor’s degree","Environmental science or geology","Data Analyst",NA,"0-1","Definitely yes",NA,"R OR AWS","NA_R_RStudio_NA"
+"30",3096,"Male","22-24","India","Bachelor’s degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Probably not",NA,"R OR AWS","NA_NA_NA_Amazon Web Services (AWS)"
+"31",4340,"Male","40-44","Nigeria","Professional degree","Mathematics or statistics",NA,NA,"1-2","Definitely yes",NA,"R OR AWS","NA_NA_NA_NA"
+"32",4407,"Male","22-24","I do not wish to disclose my location","Bachelor’s degree","Engineering (non-computer focused)","Student","Computers/Technology","1-2","Probably not",NA,"R OR AWS","NA_NA_NA_NA"
+"33",5798,"Male","18-21","United States of America","Some college/university study without earning a bachelor’s degree",NA,"Student","I am a student","0-1","Definitely not",NA,"R OR AWS","NA_NA_NA_NA"
+"34",6155,"Male","30-34","South Korea","Bachelor’s degree",NA,"Not employed",NA,NA,"Definitely yes",NA,"R OR AWS","NA_NA_NA_Amazon Web Services (AWS)"
+"35",6190,"Male","30-34","Poland","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","10-15","Maybe",NA,"R OR AWS","NA_NA_RStudio_NA"
+"36",6605,"Prefer to self-describe","30-34","Sweden","Doctoral degree","Engineering (non-computer focused)","Student","Academics/Education","4-5","Maybe",NA,"R OR AWS","NA_NA_NA_NA"
+"37",6711,"Male","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Student","I am a student","1-2","Definitely not",NA,"R OR AWS","NA_NA_NA_NA"
+"38",6802,"Male","50-54","United States of America","Master’s degree","Engineering (non-computer focused)","Research Scientist","Computers/Technology","4-5","Probably not",NA,"R OR AWS","NA_R_RStudio_Amazon Web Services (AWS)"
+"39",7125,"Female","40-44","Canada","Bachelor’s degree","Fine arts or performing arts","Not employed",NA,NA,"Probably not",NA,"R OR AWS","NA_NA_NA_NA"
+"40",7166,"Male","18-21","Viet Nam","Some college/university study without earning a bachelor’s degree",NA,NA,"I am a student","0-1","Probably not",NA,"R OR AWS","NA_NA_NA_NA"
+"41",8121,"Male","50-54","India","Professional degree","Engineering (non-computer focused)","Chief Officer","Computers/Technology","20-25","Probably yes",NA,"R OR AWS","NA_NA_NA_Amazon Web Services (AWS)"
+"42",8233,"Female","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"R OR AWS","NA_NA_NA_Amazon Web Services (AWS)"
+"43",8594,"Male","25-29","Germany","Master’s degree",NA,"Student","I am a student","5-10","Probably yes",NA,"R OR AWS","NA_R_RStudio_NA"
+"44",9151,"Male","35-39","Germany","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","5-10","Probably yes",NA,"R OR AWS","NA_NA_NA_NA"
+"45",9465,"Male","70-79","India","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Medical/Pharmaceutical","30 +","Maybe",NA,"R OR AWS","NA_NA_NA_NA"
+"46",9725,"Male","40-44","Italy","Bachelor’s degree","Physics or astronomy","Not employed",NA,NA,"Maybe",NA,"R OR AWS","NA_NA_NA_NA"
+"47",10112,"Male","35-39","United Kingdom of Great Britain and Northern Ireland","Master’s degree",NA,"Software Engineer","Computers/Technology","5-10","Probably yes",NA,"R OR AWS","NA_NA_NA_NA"
+"48",10184,"Male","30-34","Italy","Master’s degree","Engineering (non-computer focused)","Student",NA,NA,"Definitely not",NA,"R OR AWS","NA_NA_NA_NA"
+"49",10542,"Male","25-29","Ireland","Master’s degree","Mathematics or statistics","Not employed",NA,NA,"Probably yes",NA,"R OR AWS","NA_NA_NA_NA"
+"50",11107,"Male","55-59","United States of America","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Academics/Education","20-25","Definitely not",NA,"R OR AWS","NA_NA_NA_NA"
+"51",9,"Male","25-29","Turkey","Master’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"Python","Jupyter/IPython_Spyder_Python"
+"52",281,"Male","25-29","India","Professional degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Definitely yes",NA,"Python","Jupyter/IPython_Spyder_Python"
+"53",436,"Male","30-34","India","Master’s degree",NA,"Business Analyst","Computers/Technology","1-2","Definitely yes",NA,"Python","NA_NA_Python"
+"54",1684,"Female","22-24","Kenya","Bachelor’s degree","Environmental science or geology","Data Analyst",NA,"0-1","Definitely yes",NA,"Python","NA_NA_Python"
+"55",3096,"Male","22-24","India","Bachelor’s degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Probably not",NA,"Python","NA_NA_Python"
+"56",4340,"Male","40-44","Nigeria","Professional degree","Mathematics or statistics",NA,NA,"1-2","Definitely yes",NA,"Python","Jupyter/IPython_NA_Python"
+"57",4407,"Male","22-24","I do not wish to disclose my location","Bachelor’s degree","Engineering (non-computer focused)","Student","Computers/Technology","1-2","Probably not",NA,"Python","Jupyter/IPython_NA_Python"
+"58",5798,"Male","18-21","United States of America","Some college/university study without earning a bachelor’s degree",NA,"Student","I am a student","0-1","Definitely not",NA,"Python","NA_NA_Python"
+"59",6155,"Male","30-34","South Korea","Bachelor’s degree",NA,"Not employed",NA,NA,"Definitely yes",NA,"Python","Jupyter/IPython_NA_Python"
+"60",6190,"Male","30-34","Poland","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","10-15","Maybe",NA,"Python","Jupyter/IPython_Spyder_NA"
+"61",6605,"Prefer to self-describe","30-34","Sweden","Doctoral degree","Engineering (non-computer focused)","Student","Academics/Education","4-5","Maybe",NA,"Python","Jupyter/IPython_NA_Python"
+"62",6711,"Male","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Student","I am a student","1-2","Definitely not",NA,"Python","NA_NA_Python"
+"63",6802,"Male","50-54","United States of America","Master’s degree","Engineering (non-computer focused)","Research Scientist","Computers/Technology","4-5","Probably not",NA,"Python","NA_NA_NA"
+"64",7125,"Female","40-44","Canada","Bachelor’s degree","Fine arts or performing arts","Not employed",NA,NA,"Probably not",NA,"Python","Jupyter/IPython_NA_Python"
+"65",7166,"Male","18-21","Viet Nam","Some college/university study without earning a bachelor’s degree",NA,NA,"I am a student","0-1","Probably not",NA,"Python","NA_NA_Python"
+"66",8121,"Male","50-54","India","Professional degree","Engineering (non-computer focused)","Chief Officer","Computers/Technology","20-25","Probably yes",NA,"Python","NA_Spyder_Python"
+"67",8233,"Female","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"Python","NA_NA_NA"
+"68",8594,"Male","25-29","Germany","Master’s degree",NA,"Student","I am a student","5-10","Probably yes",NA,"Python","NA_NA_Python"
+"69",9151,"Male","35-39","Germany","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","5-10","Probably yes",NA,"Python","Jupyter/IPython_NA_Python"
+"70",9465,"Male","70-79","India","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Medical/Pharmaceutical","30 +","Maybe",NA,"Python","Jupyter/IPython_NA_Python"
+"71",9725,"Male","40-44","Italy","Bachelor’s degree","Physics or astronomy","Not employed",NA,NA,"Maybe",NA,"Python","NA_NA_NA"
+"72",10112,"Male","35-39","United Kingdom of Great Britain and Northern Ireland","Master’s degree",NA,"Software Engineer","Computers/Technology","5-10","Probably yes",NA,"Python","NA_NA_Python"
+"73",10184,"Male","30-34","Italy","Master’s degree","Engineering (non-computer focused)","Student",NA,NA,"Definitely not",NA,"Python","NA_NA_NA"
+"74",10542,"Male","25-29","Ireland","Master’s degree","Mathematics or statistics","Not employed",NA,NA,"Probably yes",NA,"Python","Jupyter/IPython_NA_Python"
+"75",11107,"Male","55-59","United States of America","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Academics/Education","20-25","Definitely not",NA,"Python","Jupyter/IPython_Spyder_Python"
+"76",9,"Male","25-29","Turkey","Master’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"C#","NA_Visual Studio_C#/.NET"
+"77",281,"Male","25-29","India","Professional degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Definitely yes",NA,"C#","NA_NA_NA"
+"78",436,"Male","30-34","India","Master’s degree",NA,"Business Analyst","Computers/Technology","1-2","Definitely yes",NA,"C#","NA_NA_NA"
+"79",1684,"Female","22-24","Kenya","Bachelor’s degree","Environmental science or geology","Data Analyst",NA,"0-1","Definitely yes",NA,"C#","NA_NA_NA"
+"80",3096,"Male","22-24","India","Bachelor’s degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Probably not",NA,"C#","NA_NA_NA"
+"81",4340,"Male","40-44","Nigeria","Professional degree","Mathematics or statistics",NA,NA,"1-2","Definitely yes",NA,"C#","NA_NA_NA"
+"82",4407,"Male","22-24","I do not wish to disclose my location","Bachelor’s degree","Engineering (non-computer focused)","Student","Computers/Technology","1-2","Probably not",NA,"C#","Visual Studio Code_NA_NA"
+"83",5798,"Male","18-21","United States of America","Some college/university study without earning a bachelor’s degree",NA,"Student","I am a student","0-1","Definitely not",NA,"C#","NA_NA_NA"
+"84",6155,"Male","30-34","South Korea","Bachelor’s degree",NA,"Not employed",NA,NA,"Definitely yes",NA,"C#","NA_NA_NA"
+"85",6190,"Male","30-34","Poland","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","10-15","Maybe",NA,"C#","NA_NA_NA"
+"86",6605,"Prefer to self-describe","30-34","Sweden","Doctoral degree","Engineering (non-computer focused)","Student","Academics/Education","4-5","Maybe",NA,"C#","NA_NA_NA"
+"87",6711,"Male","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Student","I am a student","1-2","Definitely not",NA,"C#","NA_NA_NA"
+"88",6802,"Male","50-54","United States of America","Master’s degree","Engineering (non-computer focused)","Research Scientist","Computers/Technology","4-5","Probably not",NA,"C#","NA_NA_NA"
+"89",7125,"Female","40-44","Canada","Bachelor’s degree","Fine arts or performing arts","Not employed",NA,NA,"Probably not",NA,"C#","Visual Studio Code_NA_NA"
+"90",7166,"Male","18-21","Viet Nam","Some college/university study without earning a bachelor’s degree",NA,NA,"I am a student","0-1","Probably not",NA,"C#","NA_NA_NA"
+"91",8121,"Male","50-54","India","Professional degree","Engineering (non-computer focused)","Chief Officer","Computers/Technology","20-25","Probably yes",NA,"C#","NA_Visual Studio_NA"
+"92",8233,"Female","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"C#","NA_NA_NA"
+"93",8594,"Male","25-29","Germany","Master’s degree",NA,"Student","I am a student","5-10","Probably yes",NA,"C#","NA_NA_NA"
+"94",9151,"Male","35-39","Germany","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","5-10","Probably yes",NA,"C#","NA_NA_NA"
+"95",9465,"Male","70-79","India","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Medical/Pharmaceutical","30 +","Maybe",NA,"C#","NA_NA_NA"
+"96",9725,"Male","40-44","Italy","Bachelor’s degree","Physics or astronomy","Not employed",NA,NA,"Maybe",NA,"C#","NA_Visual Studio_NA"
+"97",10112,"Male","35-39","United Kingdom of Great Britain and Northern Ireland","Master’s degree",NA,"Software Engineer","Computers/Technology","5-10","Probably yes",NA,"C#","Visual Studio Code_NA_NA"
+"98",10184,"Male","30-34","Italy","Master’s degree","Engineering (non-computer focused)","Student",NA,NA,"Definitely not",NA,"C#","Visual Studio Code_NA_NA"
+"99",10542,"Male","25-29","Ireland","Master’s degree","Mathematics or statistics","Not employed",NA,NA,"Probably yes",NA,"C#","NA_Visual Studio_NA"
+"100",11107,"Male","55-59","United States of America","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Academics/Education","20-25","Definitely not",NA,"C#","NA_Visual Studio_NA"
+"101",9,"Male","25-29","Turkey","Master’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"Java",NA
+"102",281,"Male","25-29","India","Professional degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Definitely yes",NA,"Java",NA
+"103",436,"Male","30-34","India","Master’s degree",NA,"Business Analyst","Computers/Technology","1-2","Definitely yes",NA,"Java",NA
+"104",1684,"Female","22-24","Kenya","Bachelor’s degree","Environmental science or geology","Data Analyst",NA,"0-1","Definitely yes",NA,"Java",NA
+"105",3096,"Male","22-24","India","Bachelor’s degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Probably not",NA,"Java",NA
+"106",4340,"Male","40-44","Nigeria","Professional degree","Mathematics or statistics",NA,NA,"1-2","Definitely yes",NA,"Java",NA
+"107",4407,"Male","22-24","I do not wish to disclose my location","Bachelor’s degree","Engineering (non-computer focused)","Student","Computers/Technology","1-2","Probably not",NA,"Java","Java"
+"108",5798,"Male","18-21","United States of America","Some college/university study without earning a bachelor’s degree",NA,"Student","I am a student","0-1","Definitely not",NA,"Java","Java"
+"109",6155,"Male","30-34","South Korea","Bachelor’s degree",NA,"Not employed",NA,NA,"Definitely yes",NA,"Java",NA
+"110",6190,"Male","30-34","Poland","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","10-15","Maybe",NA,"Java","Java"
+"111",6605,"Prefer to self-describe","30-34","Sweden","Doctoral degree","Engineering (non-computer focused)","Student","Academics/Education","4-5","Maybe",NA,"Java","Java"
+"112",6711,"Male","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Student","I am a student","1-2","Definitely not",NA,"Java",NA
+"113",6802,"Male","50-54","United States of America","Master’s degree","Engineering (non-computer focused)","Research Scientist","Computers/Technology","4-5","Probably not",NA,"Java",NA
+"114",7125,"Female","40-44","Canada","Bachelor’s degree","Fine arts or performing arts","Not employed",NA,NA,"Probably not",NA,"Java",NA
+"115",7166,"Male","18-21","Viet Nam","Some college/university study without earning a bachelor’s degree",NA,NA,"I am a student","0-1","Probably not",NA,"Java",NA
+"116",8121,"Male","50-54","India","Professional degree","Engineering (non-computer focused)","Chief Officer","Computers/Technology","20-25","Probably yes",NA,"Java",NA
+"117",8233,"Female","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"Java",NA
+"118",8594,"Male","25-29","Germany","Master’s degree",NA,"Student","I am a student","5-10","Probably yes",NA,"Java","Java"
+"119",9151,"Male","35-39","Germany","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","5-10","Probably yes",NA,"Java",NA
+"120",9465,"Male","70-79","India","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Medical/Pharmaceutical","30 +","Maybe",NA,"Java",NA
+"121",9725,"Male","40-44","Italy","Bachelor’s degree","Physics or astronomy","Not employed",NA,NA,"Maybe",NA,"Java",NA
+"122",10112,"Male","35-39","United Kingdom of Great Britain and Northern Ireland","Master’s degree",NA,"Software Engineer","Computers/Technology","5-10","Probably yes",NA,"Java",NA
+"123",10184,"Male","30-34","Italy","Master’s degree","Engineering (non-computer focused)","Student",NA,NA,"Definitely not",NA,"Java",NA
+"124",10542,"Male","25-29","Ireland","Master’s degree","Mathematics or statistics","Not employed",NA,NA,"Probably yes",NA,"Java",NA
+"125",11107,"Male","55-59","United States of America","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Academics/Education","20-25","Definitely not",NA,"Java",NA
+"126",9,"Male","25-29","Turkey","Master’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"Cplusplus",NA
+"127",281,"Male","25-29","India","Professional degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Definitely yes",NA,"Cplusplus",NA
+"128",436,"Male","30-34","India","Master’s degree",NA,"Business Analyst","Computers/Technology","1-2","Definitely yes",NA,"Cplusplus",NA
+"129",1684,"Female","22-24","Kenya","Bachelor’s degree","Environmental science or geology","Data Analyst",NA,"0-1","Definitely yes",NA,"Cplusplus",NA
+"130",3096,"Male","22-24","India","Bachelor’s degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Probably not",NA,"Cplusplus",NA
+"131",4340,"Male","40-44","Nigeria","Professional degree","Mathematics or statistics",NA,NA,"1-2","Definitely yes",NA,"Cplusplus",NA
+"132",4407,"Male","22-24","I do not wish to disclose my location","Bachelor’s degree","Engineering (non-computer focused)","Student","Computers/Technology","1-2","Probably not",NA,"Cplusplus","C/C++"
+"133",5798,"Male","18-21","United States of America","Some college/university study without earning a bachelor’s degree",NA,"Student","I am a student","0-1","Definitely not",NA,"Cplusplus",NA
+"134",6155,"Male","30-34","South Korea","Bachelor’s degree",NA,"Not employed",NA,NA,"Definitely yes",NA,"Cplusplus",NA
+"135",6190,"Male","30-34","Poland","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","10-15","Maybe",NA,"Cplusplus",NA
+"136",6605,"Prefer to self-describe","30-34","Sweden","Doctoral degree","Engineering (non-computer focused)","Student","Academics/Education","4-5","Maybe",NA,"Cplusplus","C/C++"
+"137",6711,"Male","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Student","I am a student","1-2","Definitely not",NA,"Cplusplus","C/C++"
+"138",6802,"Male","50-54","United States of America","Master’s degree","Engineering (non-computer focused)","Research Scientist","Computers/Technology","4-5","Probably not",NA,"Cplusplus",NA
+"139",7125,"Female","40-44","Canada","Bachelor’s degree","Fine arts or performing arts","Not employed",NA,NA,"Probably not",NA,"Cplusplus",NA
+"140",7166,"Male","18-21","Viet Nam","Some college/university study without earning a bachelor’s degree",NA,NA,"I am a student","0-1","Probably not",NA,"Cplusplus",NA
+"141",8121,"Male","50-54","India","Professional degree","Engineering (non-computer focused)","Chief Officer","Computers/Technology","20-25","Probably yes",NA,"Cplusplus",NA
+"142",8233,"Female","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"Cplusplus","C/C++"
+"143",8594,"Male","25-29","Germany","Master’s degree",NA,"Student","I am a student","5-10","Probably yes",NA,"Cplusplus",NA
+"144",9151,"Male","35-39","Germany","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","5-10","Probably yes",NA,"Cplusplus","C/C++"
+"145",9465,"Male","70-79","India","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Medical/Pharmaceutical","30 +","Maybe",NA,"Cplusplus",NA
+"146",9725,"Male","40-44","Italy","Bachelor’s degree","Physics or astronomy","Not employed",NA,NA,"Maybe",NA,"Cplusplus","C/C++"
+"147",10112,"Male","35-39","United Kingdom of Great Britain and Northern Ireland","Master’s degree",NA,"Software Engineer","Computers/Technology","5-10","Probably yes",NA,"Cplusplus",NA
+"148",10184,"Male","30-34","Italy","Master’s degree","Engineering (non-computer focused)","Student",NA,NA,"Definitely not",NA,"Cplusplus","C/C++"
+"149",10542,"Male","25-29","Ireland","Master’s degree","Mathematics or statistics","Not employed",NA,NA,"Probably yes",NA,"Cplusplus",NA
+"150",11107,"Male","55-59","United States of America","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Academics/Education","20-25","Definitely not",NA,"Cplusplus",NA
+"151",9,"Male","25-29","Turkey","Master’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"MatLab","NA"
+"152",281,"Male","25-29","India","Professional degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Definitely yes",NA,"MatLab","NA"
+"153",436,"Male","30-34","India","Master’s degree",NA,"Business Analyst","Computers/Technology","1-2","Definitely yes",NA,"MatLab","MATLAB"
+"154",1684,"Female","22-24","Kenya","Bachelor’s degree","Environmental science or geology","Data Analyst",NA,"0-1","Definitely yes",NA,"MatLab","NA"
+"155",3096,"Male","22-24","India","Bachelor’s degree","Engineering (non-computer focused)","Software Engineer","Computers/Technology","0-1","Probably not",NA,"MatLab","NA"
+"156",4340,"Male","40-44","Nigeria","Professional degree","Mathematics or statistics",NA,NA,"1-2","Definitely yes",NA,"MatLab","NA"
+"157",4407,"Male","22-24","I do not wish to disclose my location","Bachelor’s degree","Engineering (non-computer focused)","Student","Computers/Technology","1-2","Probably not",NA,"MatLab","NA"
+"158",5798,"Male","18-21","United States of America","Some college/university study without earning a bachelor’s degree",NA,"Student","I am a student","0-1","Definitely not",NA,"MatLab","NA"
+"159",6155,"Male","30-34","South Korea","Bachelor’s degree",NA,"Not employed",NA,NA,"Definitely yes",NA,"MatLab","NA"
+"160",6190,"Male","30-34","Poland","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","10-15","Maybe",NA,"MatLab","NA"
+"161",6605,"Prefer to self-describe","30-34","Sweden","Doctoral degree","Engineering (non-computer focused)","Student","Academics/Education","4-5","Maybe",NA,"MatLab","MATLAB"
+"162",6711,"Male","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Student","I am a student","1-2","Definitely not",NA,"MatLab","MATLAB"
+"163",6802,"Male","50-54","United States of America","Master’s degree","Engineering (non-computer focused)","Research Scientist","Computers/Technology","4-5","Probably not",NA,"MatLab","NA"
+"164",7125,"Female","40-44","Canada","Bachelor’s degree","Fine arts or performing arts","Not employed",NA,NA,"Probably not",NA,"MatLab","NA"
+"165",7166,"Male","18-21","Viet Nam","Some college/university study without earning a bachelor’s degree",NA,NA,"I am a student","0-1","Probably not",NA,"MatLab","NA"
+"166",8121,"Male","50-54","India","Professional degree","Engineering (non-computer focused)","Chief Officer","Computers/Technology","20-25","Probably yes",NA,"MatLab","NA"
+"167",8233,"Female","18-21","India","Bachelor’s degree","Engineering (non-computer focused)","Not employed",NA,NA,"Definitely not",NA,"MatLab","NA"
+"168",8594,"Male","25-29","Germany","Master’s degree",NA,"Student","I am a student","5-10","Probably yes",NA,"MatLab","NA"
+"169",9151,"Male","35-39","Germany","Master’s degree","Mathematics or statistics","Software Engineer","Computers/Technology","5-10","Probably yes",NA,"MatLab","NA"
+"170",9465,"Male","70-79","India","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Medical/Pharmaceutical","30 +","Maybe",NA,"MatLab","NA"
+"171",9725,"Male","40-44","Italy","Bachelor’s degree","Physics or astronomy","Not employed",NA,NA,"Maybe",NA,"MatLab","MATLAB"
+"172",10112,"Male","35-39","United Kingdom of Great Britain and Northern Ireland","Master’s degree",NA,"Software Engineer","Computers/Technology","5-10","Probably yes",NA,"MatLab","NA"
+"173",10184,"Male","30-34","Italy","Master’s degree","Engineering (non-computer focused)","Student",NA,NA,"Definitely not",NA,"MatLab","NA"
+"174",10542,"Male","25-29","Ireland","Master’s degree","Mathematics or statistics","Not employed",NA,NA,"Probably yes",NA,"MatLab","MATLAB"
+"175",11107,"Male","55-59","United States of America","Doctoral degree","Engineering (non-computer focused)","Research Scientist","Academics/Education","20-25","Definitely not",NA,"MatLab","NA"
