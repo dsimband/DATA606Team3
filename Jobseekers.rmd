@@ -60,11 +60,22 @@ sud$ID <- 1:nrow(sud)
 ##searching key skills from ccolumns
 sud2 <- with(sud, sud[ grepl("ML", sud$ML) | grepl("AWS", sud$RorAWS) | grepl("R", sud$RorAWS) | grepl("Python", sud$Python) | grepl("R", sud$R) | grepl("C#|Visual Studio", sud$Csharp) | grepl("MatLab", sud$MatLab) | grepl("C#|Visual Studio", sud$Csharp1) | grepl("Python", sud$Python2) | grepl("AWS", sud$AWS) | grepl("Python", sud$Python3) | grepl("R", sud$R1) | grepl("Java", sud$Java) | grepl("C+", sud$Cplusplus) | grepl("MatLab", sud$MatLab1) | grepl("C#|Visual Studio", sud$Csharp2), ])
 sud2
-
+## merging columns with same skill set
 datastage <- sud2 %>% replace(.=="", NA) # replace with NA
 datastage <- datastage %>% replace(.=="Other", NA) # replace with NA
+datastagedata1 <- datastage %>%
+  unite("R OR AWS", RorAWS,R1,R,AWS)
+datastagedata1
+datastagedata2 <- datastagedata1 %>%
+  unite("Python", Python,Python2,Python3)
+datastagedata2
+datastagedata3 <- datastagedata2 %>%
+  unite("C#", Csharp,Csharp1,Csharp2)
+datastage4 <- datastagedata3 %>%
+  unite("MatLab", MatLab1,MatLab1)
+datastage4
 #transforming data from wide to long
-datastagef <- melt(datastage, id.vars= c("ID","Gender","Age","Location","Education","Major","Title","Industry","Experience","DataScientist","PrimarySkill"),  variable.name = "Skills", value.name="name")
+datastagef <- melt(datastage4, id.vars= c("ID","Gender","Age","Location","Education","Major","Title","Industry","Experience","DataScientist","PrimarySkill"),  variable.name = "Skills", value.name="name")
 datastagef
 
 da_complete <- datastagef %>%
