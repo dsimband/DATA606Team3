@@ -1,16 +1,16 @@
 ---
 title: "DATA607_Project 3 - Data Science Skills"
-author: "David Simbandumwe"
+author: "Team 3: David Simbandumwe, Thomas Buonora, Charles Ugiagbe, Jaya Veluri"
 date: "`r Sys.Date()`"
 output:
+  html_document:
+    df_print: paged
   pdf_document:
     latex_engine: xelatex
     extra_dependencies:
     - geometry
     - multicol
     - multirow
-  html_document:
-    df_print: paged
   rmdformats::robobook:
     highlight: kate
 ---
@@ -38,7 +38,11 @@ library(corrplot)
 
 
 
-#
+# Introduction
+
+
+
+
 
 ```{r}
 
@@ -65,7 +69,7 @@ dbDisconnect(con)
 ```{r}
 
 # read skills data from csv
-skills_df <- read_csv( file = "https://raw.githubusercontent.com/dsimband/DATA607Team3/master/csv/Final_Train_Dataset.csv")
+skills_df <- read_csv( file = "/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/source/Final_Train_Dataset.csv")
 names(skills_df)[1] <- "id"
 
 
@@ -120,10 +124,142 @@ skills_df <- skills_df %>%
 
 
 #write out csv file
-write.csv(skills_df, "/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/skillsOutput.csv", row.names=FALSE)
+write.csv(skills_df, "/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/output/skillsOutput.csv", row.names=FALSE)
 
 
 ```
+
+
+
+
+```{r}
+
+emp_df <-  read.csv(
+  "/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/source/multipleChoiceResponses.csv", 
+  header=T,sep="," 
+)
+
+tmp <- emp_df %>% select(Q1, Q2, Q3, Q4, Q6, Q8, Q9, starts_with("Q13"), starts_with("Q16"))
+tmp <- tmp %>% select(-c("Q13_OTHER_TEXT","Q16_OTHER_TEXT"))
+
+# t3 <- tmp %>% group_by(Q6) %>% 
+#   mutate(
+#    n = n() 
+#   ) %>%
+#   select(Q6,n) %>% 
+#   distinct()
+
+tmp <- tmp %>%
+  filter(grepl("Data Scientist",Q6)) %>%
+  mutate (
+     id = row_number()
+  )
+ 
+
+tmp <- slice(tmp,-(1:1))
+tmp <- tmp %>% pivot_longer(
+                starts_with("Q13") | starts_with("Q16"),
+                names_to = "q",
+                values_to = "ans"
+              ) 
+
+tmp <- tmp %>% 
+  mutate (
+    ans = str_squish(ans),
+    ans = str_to_lower(ans)
+  )
+
+tmp <- tmp %>% 
+  right_join(ds_skills_list_df, by=c("ans" = "key_skills") ) %>%
+  rename(
+      key_skills_id = id.y,
+      id = id.x
+  )
+
+
+tmp <- tmp %>% 
+  filter (ans != "" & Q9 != "") %>%
+  filter(!grepl("I do not",Q9)) %>%
+  mutate (
+    Q9 = str_replace(Q9, "\\+",""),
+    Q9 = str_replace(Q9, ",000","")
+  )
+
+  
+tmp <- tmp %>% 
+  separate(
+      Q9,
+      c("min_salary" , "max_salary"),
+      convert = TRUE,
+      sep = "-"
+  ) 
+
+
+tmp <- tmp %>%
+  transform(
+    min_salary = as.numeric(min_salary),
+    max_salary = as.numeric(max_salary)
+  ) 
+
+
+emp_df <- tmp %>%
+    rename(
+      gender = Q1,
+      age = Q2,
+      location = Q3,
+      education = Q4,
+      title = Q6,
+      experience = Q8
+    ) %>%
+  select (id, q, ans, key_skills_id, min_salary, max_salary, gender, age, location, education, title, experience)
+
+
+write.csv(emp_df,"/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/output/multipleChoiceOutput.csv")
+
+```
+
+
+
+
+
+
+
+
+
+
+# Analysis Open Roles
+
+
+```{r}
+
+s1 <- skills_df %>% group_by(key_skills) %>%
+  mutate(
+    n = n()
+  ) %>%
+  select(key_skills, n) %>%
+  distinct()
+
+s1 %>% 
+  ggplot(aes( y=key_skills, x=n)) +
+  geom_bar(position="dodge", stat="identity") + 
+  labs(title = "Instances of Specific Skills in the Dataset" )
+
+```
+
+
+
+
+```{r}
+
+skills_df %>% 
+  ggplot() +
+  geom_boxplot(mapping = aes(y=key_skills, x=max_salary, color=key_skills)) + 
+  labs (title = "Mapping Salary to Skillset" )
+
+
+```
+
+
 
 
 ```{r}
@@ -131,7 +267,7 @@ write.csv(skills_df, "/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/skil
 # create a wide dataframe for correlation
 t <- skills_df %>% 
   mutate(
-    flag = 1
+    flag = 100
   ) %>%
   select(-c(key_skills_id,job_type)) %>%
   mutate (
@@ -160,110 +296,87 @@ corrplot(t_cor, title="Coorelation Income By Skills")
 
 
 
+# Analytis Job Seekers
+
+```{r}
+
+s1 <- emp_df %>% group_by(ans) %>%
+  mutate(
+    n = n()
+  ) %>%
+  select(ans, n) %>%
+  distinct()
+
+s1 %>% 
+  ggplot(aes( y=ans, x=n)) +
+  geom_bar(position="dodge", stat="identity") + 
+  labs(title = "Instances of Specific Skills in the Dataset" )
+
+```
+
+
+```{r}
+emp_df %>% 
+  ggplot() +
+  geom_boxplot(mapping = aes(y=ans, x=max_salary, color=ans)) + 
+  labs (title = "Mapping Salary to Skillset" )
+```
 
 
 
 
 ```{r}
 
-emp_df <-  read.csv(
-  "/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/csv/multipleChoiceResponses.csv", 
-  header=T,sep="," 
-)
-
-emp_df <- emp_df %>% select(Q1, Q2, Q3, Q4, Q6, Q8, Q9, starts_with("Q13"), starts_with("Q16"))
-emp_df <- emp_df %>% select(-c("Q13_OTHER_TEXT","Q16_OTHER_TEXT"))
-
-emp_df <- emp_df %>%
-  filter(Q6 == "Data Scientist") %>%
+# create a wide dataframe for correlation
+t2 <- emp_df %>% 
+  mutate(
+    flag = 100
+  ) %>%
   mutate (
-     id = row_number()
-  )
- 
-
-emp_df <- slice(emp_df,-(1:1))
-emp_df <- emp_df %>% pivot_longer(
-                starts_with("Q13") | starts_with("Q16"),
-                names_to = "q",
-                values_to = "ans"
-              ) 
-
-emp_df <- emp_df %>% 
-  mutate (
-    ans = str_squish(ans),
-    ans = str_to_lower(ans)
-  )
-
-emp_df <- emp_df %>% 
-  right_join(ds_skills_list_df, by=c("ans" = "key_skills") ) %>%
-  rename(
-      key_skills_id = id.y,
-      id = id.x
-  )
-
-
-emp_df <- emp_df %>% 
-  filter (ans != "" & Q9 != "") %>%
-  filter(!grepl("I do not",Q9)) %>%
-  mutate (
-    Q9 = str_replace(Q9, "\\+",""),
-    Q9 = str_replace(Q9, ",000","")
-  )
-
-  
-emp_df <- emp_df %>% 
-  separate(
-      Q9,
-      c("min_salary" , "max_salary"),
-      convert = TRUE,
-      sep = "-"
+   ans = str_replace_all(ans, " ", "_"),
+   ans = str_squish(ans),
+   row = row_number()
   ) 
+t2 <- t2 %>%
+  pivot_wider(
+    names_from = ans,
+    values_from = flag,
+    values_fill = 0
+  ) 
+t2 <- t2 %>% select(-c(id, q, key_skills_id ,experience, title, age, gender, location, education )) 
+t2 <- t2 %>% drop_na()
 
 
-emp_df <- emp_df %>%
-  transform(
-    min_salary = as.numeric(min_salary),
-    max_salary = as.numeric(max_salary)
-  )
-
-
-emp_df <- emp_df %>%
-    rename(
-      gender = Q1,
-      age = Q2,
-      location = Q3,
-      education = Q4,
-      title = Q6,
-      experience = Q8
-    ) %>%
-  select (id, q, ans, key_skills_id, min_salary, max_salary, gender, age, location, education, title, experience)
-
-
-write.csv(emp_df,"/Users/dsimbandumwe/dev/cuny/data_607_T3/DATA607Team3/multipleChoiceOutput.csv")
+t2.rcorr = rcorr(as.matrix(t2))
+t2.rcorr
+    
+    
+t2_cor = cor(t, method = c("spearman"))
+corrplot(t_cor, title="Coorelation Income By Skills (Job Seeker)")
 
 ```
 
 
 
-
-# Introduction
-
-
-
-
-
-# HTML
-
-
-
-# XML
-
-
-
 # Conclusions
 
+Based on our analysis we can identify a few skills that do not correlate with income or salary. However given how low the overal levels of correlation it is difficult to come to any additional conclusions.  
+
+- **Open Roles**
+- marketing automation 0.2043 min and 0.1458 max
+- data privacy 0.4249 min and 0.3341 max
+- matlab 0.7624 min and 0.6057 max
+- big data analytics min 0.7172 and 0.1767 max
+- and interestingly enough pyhton has a slightly negative correlation
 
 
+- **Job Seekers**
+- python 0.3131 min and 0.3132 max
+
+The results could be a factor of our limited datasets or it could also be caused by additional factors that impact salary that are not included in the data. Some items could include:
+- where you received your college education
+- industry
+- geography within the course grained location (NY, SFO markets)
 
 
 
