@@ -374,6 +374,7 @@
 909,"3-5 yrs","Analytics","Trivandrum",3,6,1305,"sql",19
 909,"3-5 yrs","Analytics","Trivandrum",3,6,1305,"analytics",1
 909,"3-5 yrs","Analytics","Trivandrum",3,6,1305,"r",17
+909,"3-5 yrs","Analytics","Trivandrum",3,6,1305,"stata",25
 911,"3-6 yrs","Analytics","Mumbai",10,15,2807,"r",17
 911,"3-6 yrs","Analytics","Mumbai",10,15,2807,"predictive analytics",15
 914,"2-4 yrs","Analytics","Delhi(East of Kailash)",15,25,601,"r",17
@@ -2008,6 +2009,7 @@
 5198,"2-7 yrs","Analytics","Bengaluru",3,6,2740,"python",16
 5198,"2-7 yrs","Analytics","Bengaluru",3,6,2740,"analytics",1
 5198,"2-7 yrs","Analytics","Bengaluru",3,6,2740,"machine learning",9
+5204,"0-2 yrs",NA,"Gurgaon",6,10,1682,"stata",25
 5204,"0-2 yrs",NA,"Gurgaon",6,10,1682,"r",17
 5205,"2-4 yrs","analytic","Gurgaon",3,6,1682,"sql",19
 5209,"5-10 yrs",NA,"Hyderabad",10,15,1954,"sql",19
@@ -2641,6 +2643,7 @@
 6914,"3-5 yrs","Analytics","Trivandrum",6,10,1305,"sql",19
 6914,"3-5 yrs","Analytics","Trivandrum",6,10,1305,"analytics",1
 6914,"3-5 yrs","Analytics","Trivandrum",6,10,1305,"r",17
+6914,"3-5 yrs","Analytics","Trivandrum",6,10,1305,"stata",25
 6917,"4-9 yrs",NA,"Bengaluru",10,15,2401,"hadoop",8
 6928,"3-5 yrs",NA,"Kolkata",10,15,4893,"data science",5
 6928,"3-5 yrs",NA,"Kolkata",10,15,4893,"python",16
@@ -2699,6 +2702,7 @@
 7048,"0-2 yrs","Analytics","Pune",6,10,4904,"analytics",1
 7054,"4-8 yrs",NA,"Delhi NCR, Gurgaon",15,25,1969,"sql",19
 7054,"4-8 yrs",NA,"Delhi NCR, Gurgaon",15,25,1969,"r",17
+7054,"4-8 yrs",NA,"Delhi NCR, Gurgaon",15,25,1969,"stata",25
 7058,"3-6 yrs","analytics","Bengaluru",3,6,25,"analytics",1
 7060,"3-8 yrs","Analytics","Singapore",25,50,1262,"python",16
 7061,"4-8 yrs",NA,"Delhi NCR",15,25,1969,"r",17
@@ -6779,6 +6783,7 @@
 17693,"2-3 yrs","Analytics","Gurgaon, Gurugram",6,10,2665,"sql",19
 17698,"6-8 yrs",NA,"Bengaluru",3,6,352,"big data",2
 17698,"6-8 yrs",NA,"Bengaluru",3,6,352,"model development",13
+17700,"7-12 yrs","Analytics","Chandigarh",15,25,2941,"stata",25
 17718,"5-10 yrs","analytics","Bengaluru",10,15,884,"machine learning",9
 17719,"5-6 yrs",NA,"Gurgaon",10,15,1693,"python",16
 17726,"3-5 yrs","analytics","Bengaluru",6,10,3931,"r",17
@@ -7484,6 +7489,7 @@
 19569,"3-5 yrs","Analytics","Trivandrum",3,6,1305,"sql",19
 19569,"3-5 yrs","Analytics","Trivandrum",3,6,1305,"analytics",1
 19569,"3-5 yrs","Analytics","Trivandrum",3,6,1305,"r",17
+19569,"3-5 yrs","Analytics","Trivandrum",3,6,1305,"stata",25
 19572,"3-6 yrs",NA,"Bengaluru",6,10,1448,"python",16
 19577,"9-14 yrs",NA,"Gurgaon",25,50,16,"machine learning",9
 19579,"3-6 yrs",NA,"Gurgaon",10,15,1168,"sql",19
@@ -7555,3 +7561,7 @@
 19776,"0-1 yrs","analytics","Hyderabad(Madhapur)",0,3,269,"predictive analytics",15
 19780,"3-5 yrs",NA,"Hyderabad",10,15,874,"hadoop",8
 19793,"4-7 yrs","Analytics","Chennai",10,15,1727,"python",16
+NA,NA,NA,NA,NA,NA,NA,"jupyter",21
+NA,NA,NA,NA,NA,NA,NA,"ipython",22
+NA,NA,NA,NA,NA,NA,NA,"pycharm",23
+NA,NA,NA,NA,NA,NA,NA,"spyder",24

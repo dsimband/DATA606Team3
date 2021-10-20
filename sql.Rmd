@@ -191,7 +191,12 @@ dbGetQuery(con, "insert into SkillsMeta
                     (17,'r'),
                     (18,'regression testing'),
                     (19,'sql'),
-                    (20,'team leading')
+                    (20,'team leading'),
+                    (21,'jupyter'),
+                    (22,'ipython'),
+                    (23,'pycharm'),
+                    (24,'spyder'),
+                    (25,'stata')
            ;")
 
 

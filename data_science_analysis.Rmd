@@ -140,14 +140,7 @@ emp_df <-  read.csv(
 )
 
 tmp <- emp_df %>% select(Q1, Q2, Q3, Q4, Q6, Q8, Q9, starts_with("Q13"), starts_with("Q16"))
-tmp <- tmp %>% select(-c("Q13_OTHER_TEXT","Q16_OTHER_TEXT"))
-
-# t3 <- tmp %>% group_by(Q6) %>% 
-#   mutate(
-#    n = n() 
-#   ) %>%
-#   select(Q6,n) %>% 
-#   distinct()
+#tmp <- tmp %>% select(-c("Q13_OTHER_TEXT","Q16_OTHER_TEXT"))
 
 tmp <- tmp %>%
   filter(grepl("Data Scientist",Q6)) %>%
@@ -163,11 +156,20 @@ tmp <- tmp %>% pivot_longer(
                 values_to = "ans"
               ) 
 
+tmp <- tmp %>%
+    separate_rows(
+        ans,
+        convert = TRUE,
+        sep = "\\/"
+    )
+
+
 tmp <- tmp %>% 
   mutate (
     ans = str_squish(ans),
     ans = str_to_lower(ans)
   )
+
 
 tmp <- tmp %>% 
   right_join(ds_skills_list_df, by=c("ans" = "key_skills") ) %>%
@@ -198,9 +200,8 @@ tmp <- tmp %>%
 tmp <- tmp %>%
   transform(
     min_salary = as.numeric(min_salary),
-    max_salary = as.numeric(max_salary)
+    max_salary = ifelse(is.na(as.numeric(max_salary)),2000,as.numeric(max_salary))
   ) 
-
 
 emp_df <- tmp %>%
     rename(
@@ -351,8 +352,8 @@ t2.rcorr = rcorr(as.matrix(t2))
 t2.rcorr
     
     
-t2_cor = cor(t, method = c("spearman"))
-corrplot(t_cor, title="Coorelation Income By Skills (Job Seeker)")
+t2_cor = cor(t2, method = c("spearman"))
+corrplot(t2_cor, title="Coorelation Income By Skills (Job Seeker)")
 
 ```
 
